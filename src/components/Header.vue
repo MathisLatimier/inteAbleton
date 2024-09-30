@@ -1,5 +1,6 @@
 <script setup>
 import abletonLogo from '@/assets/Ableton-logo.svg'
+
 </script>
 
 <template>
@@ -26,7 +27,7 @@ import abletonLogo from '@/assets/Ableton-logo.svg'
         </nav>
       </div>
     </section>
-    <section class="second-header w-full flex items-center">
+    <section class="second-header w-full flex items-center z-50">
       <ul class="container mx-auto flex flex-row gap-4">
         <li><a href="" class="text-rouge">About</a></li>
         <li><a href="">Jobs</a></li>
@@ -89,5 +90,6 @@ nav, ul {
 .second-header {
   background-color: rgba(255, 255, 255, 0.9);
   height: 60px;
+  transition: transform 0.3s ease-out, opacity 0.3s ease-out; /* Animation pour cacher et montrer */
 }
 </style>

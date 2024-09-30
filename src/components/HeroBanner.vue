@@ -83,7 +83,7 @@ import eighthPhoto from '@/assets/img/eighth-photo.jpg'
     </section>
     <section class="last-section grid grid-cols-1 xl:grid-cols-2">
         <div class="photo-1 w-full" :style="{backgroundImage: `url(${eighthPhoto})`}"></div>
-        <div class="blue-section bg-bleu-clair flex flex-col p-28">
+        <div class="blue-section bg-bleu-clair flex flex-col p-32">
             <div class="text-body my-auto">
                 <h2 class="text-3xl">We’re really proud of the work we’ve done so far. But there’s so much more to come. If you’d like to be a part of it, please join us.</h2>
                 <a href="" class="text-bleu-fonce text-3xl">See latest jobs</a>
@@ -125,7 +125,7 @@ import eighthPhoto from '@/assets/img/eighth-photo.jpg'
 
 .last-section .photo-1 {
     /* width: 50%; */
-    height: 60vh;
+    height: 70vh;
     background-size: cover;
     background-position: 50% 50%;
 
