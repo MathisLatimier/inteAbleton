@@ -1,10 +1,43 @@
 <script setup>
 import abletonLogo from '@/assets/Ableton-logo.svg'
+import { onMounted } from 'vue';
+
+
+let lastKnownScrollPosition = 0;
+let up = true;
+
+onMounted(() => {
+  const header = document.getElementById('second-header');
+  document.addEventListener("scroll", (event) => {
+  let scrollPosition = window.scrollY
+
+  // console.log(scrollPosition, lastKnownScrollPosition)
+  
+  if (scrollPosition > 71) {
+    header.classList.add('fixed')
+  } else {
+    header.classList.remove('fixed')
+  }
+
+  if (scrollPosition > lastKnownScrollPosition & up & scrollPosition > 300) {
+    console.log('down')
+    up = false
+    header.classList.add('colapsed')
+  } else if (scrollPosition < lastKnownScrollPosition & !up) {
+    console.log('up')
+    up = true
+    header.classList.remove('colapsed')
+  }
+
+  lastKnownScrollPosition = scrollPosition
+});
+
+})
 
 </script>
 
 <template>
-      <header class="">
+  <header class="">
     <section class="first-header w-full flex items-center border-b-2 border-[#eee]">
       <div class="container mx-auto flex justify-between w-full md:text-xl">
         <nav class="flex gap-5 items-center md:gap-8">
@@ -27,7 +60,7 @@ import abletonLogo from '@/assets/Ableton-logo.svg'
         </nav>
       </div>
     </section>
-    <section class="second-header w-full flex items-center z-50">
+    <section class="second-header w-full flex items-center z-50 top-0" id="second-header">
       <ul class="container mx-auto flex flex-row gap-4">
         <li><a href="" class="text-rouge">About</a></li>
         <li><a href="">Jobs</a></li>
@@ -90,6 +123,10 @@ nav, ul {
 .second-header {
   background-color: rgba(255, 255, 255, 0.9);
   height: 60px;
-  transition: transform 0.3s ease-out, opacity 0.3s ease-out; /* Animation pour cacher et montrer */
+  transition: transform 200ms ease-out;
+}
+
+.second-header.colapsed {
+  transform: translateY(-60px);
 }
 </style>
